@@ -21,6 +21,9 @@ app_module.flask_app.config['TESTING'] = True
 
 
 class ShareNoteUpgradeTests(unittest.TestCase):
+    def test_python_311_or_newer_runtime(self):
+        self.assertGreaterEqual(sys.version_info[:2], (3, 11))
+
     def setUp(self):
         self.client = app_module.flask_app.test_client()
 
